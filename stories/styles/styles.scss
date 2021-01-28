@@ -1,0 +1,356 @@
+@import '../../scss/styles.scss';
+
+// Float and clear
+
+.story-float-left {
+  float: left;
+}
+
+.story-float-right {
+  float: right;
+}
+
+.story-clear {
+  clear: both;
+  display: block;
+}
+
+// Spacing
+
+$spacing-list: (spacing-baseline: $spacing-baseline,
+  spacing-4xs: $spacing-4xs,
+  spacing-3xs: $spacing-3xs,
+  spacing-2xs: $spacing-2xs,
+  spacing-xs: $spacing-xs,
+  spacing-sm: $spacing-sm,
+  spacing-md: $spacing-md,
+  spacing-lg: $spacing-lg,
+  spacing-xl: $spacing-xl,
+  spacing-2xl: $spacing-2xl,
+  spacing-3xl: $spacing-3xl,
+  layout-2xs: $layout-2xs,
+  layout-xs: $layout-xs,
+  layout-sm: $layout-sm,
+  layout-md: $layout-md,
+  layout-lg: $layout-lg,
+  layout-xl: $layout-xl,
+  layout-2xl: $layout-2xl,
+);
+
+@mixin story-spacing($spacing) {
+  height: $spacing;
+  width: $spacing;
+  background: $brand-01;
+  display: inline-block;
+}
+
+@each $key,
+$val in $spacing-list {
+  .story-#{$key} {
+    @include story-spacing($val);
+  }
+}
+
+.spacing-table {
+  width: 100%;
+}
+
+.spacing-table-header {
+  background: $ui-02;
+  font-weight: 600;
+}
+
+.spacing-table-row {
+  min-height: 50px;
+  border-bottom: 1px solid $ui-05;
+}
+
+.spacing-table-content {
+  padding: 1rem 0;
+  width: 25%;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.spacing-demo {
+  display: flex;
+  border-bottom: solid 1px $ui-03;
+
+  &>div {
+    padding: $spacing-sm 0;
+    display: flex;
+    align-items: center;
+  }
+
+  .spacing-wrapper {
+    width: 300px;
+  }
+}
+
+// Colors
+
+@mixin text-contrast($n) {
+  $color-brightness: round((red($n) * 299)+ (green($n) * 587)+ (blue($n) * 114)/1000);
+  $light-color: round((red(#ffffff) * 299)+ (green(#ffffff) * 587)+ (blue(#ffffff) * 114)/1000);
+
+  @if abs($color-brightness) < ($light-color/2) {
+    color: white;
+  }
+
+  @else {
+    border: solid 1px $ui-04;
+    color: black;
+  }
+}
+
+@mixin story-bg($color) {
+  border: none;
+  @include text-contrast($color);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: $color;
+  height: $layout-xl;
+  font-size: 12px;
+  text-align: center;
+}
+
+$colors-list: (brand-01: $brand-01,
+  ui-01: $ui-01,
+  ui-02: $ui-02,
+  ui-03: $ui-03,
+  ui-04: $ui-04,
+  ui-05: $ui-05,
+  text-01: $text-01,
+  text-02: $text-02,
+  text-03: $text-03,
+  inverse-01: $inverse-01,
+  inverse-02: $inverse-02,
+  field-01: $field-01,
+  field-02: $field-02,
+  background: $background,
+  support-01: $support-01,
+  support-02: $support-02,
+  support-03: $support-03,
+  support-04: $support-04,
+  error-01: $error-01,
+  error-02: $error-02,
+  blue-20: $blue-20,
+  brand-darkened: $brand-darkened,
+  primary-hover: $primary-hover,
+  arrival: $arrival,
+  departure: $departure,
+  overflight: $overflight,
+  touch-go: $touch-go,
+  noisedb-30-35: $noisedb-30-35,
+  noisedb-35-40: $noisedb-35-40,
+  noisedb-40-45: $noisedb-40-45,
+  noisedb-45-50: $noisedb-45-50,
+  noisedb-50-55: $noisedb-50-55,
+  noisedb-55-60: $noisedb-55-60,
+  noisedb-60-65: $noisedb-60-65,
+  noisedb-65-70: $noisedb-65-70,
+  noisedb-70-75: $noisedb-70-75,
+  noisedb-75-80: $noisedb-75-80,
+  noisedb-80-plus: $noisedb-80-plus,
+);
+
+@each $key,
+$val in $colors-list {
+  .story-bg-#{$key} {
+    @include story-bg($val);
+  }
+
+  .story-text-#{$key} {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    border: solid 1px $ui-04;
+    border-top: none;
+    height: $layout-sm;
+    width: calc($layout-xl * 1.5);
+    text-align: center;
+    font-size: 12px;
+    color: $ui-04;
+
+    &::after {
+      content: '#{($val)}';
+      display: block;
+    }
+  }
+}
+
+.story-color-demo {
+  @extend .story-float-left;
+  padding: $spacing-sm;
+  width: $layout-2xl;
+}
+
+.story-color-content {
+  width: calc(#{$layout-2xl} * 4.5);
+}
+
+.story-color-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  padding: 0 $spacing-2xl;
+
+  .story-color-title {
+    font-weight: 600;
+    min-width: 200px;
+  }
+}
+
+// Icons demo
+
+.story-icon-demo {
+  float: left;
+  padding: $spacing-md;
+  color: $text-02;
+}
+
+.element-separator {
+  height: 15px;
+  display: block;
+}
+
+.combinations-table {
+  tr {
+    th {
+      font-weight: bold;
+    }
+
+    th,
+    td {
+      text-align: start;
+      padding: 10px 30px 20px 0;
+    }
+  }
+}
+
+.notes-list {
+  font-size: 14px;
+  padding-top: 50px;
+
+  b {
+    font-weight: 500;
+    padding-bottom: 10px;
+    display: block;
+  }
+
+  ul {
+    li {
+      padding: 10px;
+    }
+  }
+}
+
+// Typography section
+.story-typography-section {
+  display: flex;
+  flex-direction: row;
+  padding: 0 $spacing-2xl;
+
+  .story-typography-title {
+    width: 15vw;
+    font-weight: 600;
+  }
+
+  .story-typography-content {
+    width: 85vw;
+  }
+
+  .story-typography-semibold {
+    font-weight: 600;
+  }
+
+  .story-typography-regular {
+    font-weight: 400;
+  }
+
+  .story-typography-light {
+    font-weight: 300;
+  }
+}
+
+.story-typography-demo {
+  display: flex;
+  margin-bottom: $spacing-lg;
+
+  .story-typography-display {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 40rem;
+  }
+
+  .story-typography-spec {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
+.story-spacer {
+  height: $layout-sm;
+}
+
+// Buttons
+
+.demo-button-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 600px;
+}
+
+.demo-button-long-button {
+  width: 600px;
+}
+
+// Navbar
+
+.story-navbar-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  width: 100%;
+  height: 70vh;
+  background-color: lightblue;
+}
+
+.story-navbar-btn {
+  height: 50px;
+}
+
+// Table
+
+td {
+  padding: 5px;
+}
+
+.story-selectable-table {
+  grid-template-columns:
+    [padding] 24px [content] 32px [padding] 32px [content] minmax(1px, max-content) [padding] minmax(40px, 1fr) repeat(4,
+      [content] minmax(1px, max-content) [padding] minmax(32px, 1fr)) [content] minmax(1px, max-content) [padding] 24px;
+}
+
+.story-regular-table {
+  grid-template-columns:
+    [padding] 24px [content] minmax(1px, max-content) [padding] minmax(40px, 1fr) repeat(4, [content] minmax(1px, max-content) [padding] minmax(32px, 1fr)) [content] minmax(1px,
+      max-content) [padding] 24px;
+}
+
+.basic-demo-suburb {
+  max-width: 300px;
+}
+
+.story-noise-graph {
+  visibility: visible;
+
+  &--hide {
+    visibility: hidden;
+  }
+}

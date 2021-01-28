@@ -1,0 +1,7 @@
+// Override any previous defined flex-grow properties
+// using flex-grow-#.
+@for $i from 0 through 10 {
+  .flex-grow--#{$i} {
+    flex-grow: $i !important;
+  }
+}

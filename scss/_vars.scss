@@ -1,0 +1,115 @@
+$brand-01: #0b6bf2 !default;
+$ui-01: #fff !default;
+$ui-02: #f4f7fb !default;
+$ui-03: #c4cdd5 !default;
+$ui-04: #8897a2 !default;
+$ui-05: #5a6872 !default;
+$text-01: #2e384d !default;
+$text-02: #5a6872 !default;
+$text-03: #cdd1d4 !default;
+$inverse-01: #fff !default;
+$inverse-02: #272d33 !default;
+$field-01: #f4f7fb !default;
+$field-02: #fff !default;
+$background: #f2f6ff !default;
+
+//* Support color variables
+$support-01: #e0182d;
+$support-02: #5aa700;
+$support-03: #efc100;
+$support-04: #5aaafa;
+
+//* Secondary
+$error-01: #de3617 !default;
+$error-02: #fbeae5 !default;
+$success: #3a855d !default;
+$blue-20: #d0d9fa !default;
+$brand-darkened: #07469e !default;
+$primary-hover: #4d88ff !default;
+
+//* Operations
+$arrival: #ea702e !default;
+$departure: #8c54ff !default;
+$overflight: #5aa700 !default;
+$touch-go: #5aaafa !default;
+$air-geometry: #47c2c0 !default;
+$zone-geometry: #e644fc !default;
+
+//* hover
+$hover-danger: #bd1427 !default;
+
+//* Visualisation
+$noisedb-30-35: #82a6ad !default;
+$noisedb-35-40: #a0babf !default;
+$noisedb-40-45: #b8d6d1 !default;
+$noisedb-45-50: #cee4cc !default;
+$noisedb-50-55: #e2f2bf !default;
+$noisedb-55-60: #f3c683 !default;
+$noisedb-60-65: #e87e4d !default;
+$noisedb-65-70: #cd463e !default;
+$noisedb-70-75: #a11a4d !default;
+$noisedb-75-80: #75085c !default;
+$noisedb-80-plus: #430a4a !default;
+
+//* Shadows
+$shadow-01: 0 1px 5px 0 rgba(39, 45, 51, 0.1);
+$shadow-02: 0 2px 16px 0 rgba(39, 45, 51, 0.1);
+$shadow-03: 0 31px 41px rgba(39, 45, 51, 0.1);
+
+    $overlay-01: rgba(0, 33, 78, 0.5);
+    $overlay-02: rgba(0, 107, 173, 0.6);
+    $font-01: Rubik;
+    $font-02: Rubik;
+
+    $primary: '"Nunito Sans", "Helvetica Neue", Helvetica, Arial, sans-serif';
+    $code: '"SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace';
+
+    $shadow-01: 0 1px 5px 0 rgba(0, 0, 0, 0.1);
+    $shadow-02: 0 2px 15px 0 rgba(0, 0, 0, 0.2);
+    $shadow-03: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+
+    $tabBarHeight: 90px;
+    $mobileTabBarHeight: 60px;
+    $tabButtonPadding: 30px;
+    $tabButtonIconPadding: 10px;
+    $dropMenuWidth: 180px;
+    $menuUnderlineHeight: 2px;
+    $dropMenuLineHeight: 30px;
+    $logoHeight: 60px;
+    $logoLeft: 3%;
+    $footerHeight: 64px;
+    $folderHeight: 45px;
+
+    $banner-img-path: 'https://qhomedesign-web.s3-ap-southeast-2.amazonaws.com/cdn_asset/';
+    $cdn-fonts-path: 'https://d3nvesd3xvdinx.cloudfront.net/fonts/inter/';
+
+    //* Border Radius
+$border-radius: 3px;
+$border-radius-lg: 6px;
+
+$spacing-baseline: 1rem !default;
+$spacing-4xs: $spacing-baseline * 0.0625 !default;
+$spacing-3xs: $spacing-baseline * 0.125 !default;
+$spacing-2xs: $spacing-baseline * 0.25 !default;
+$spacing-xs: $spacing-baseline * 0.5 !default;
+$spacing-sm: $spacing-baseline * 0.75 !default;
+$spacing-md: $spacing-baseline !default;
+$spacing-lg: $spacing-baseline * 1.5 !default;
+$spacing-xl: $spacing-baseline * 2 !default;
+$spacing-2xl: $spacing-baseline * 2.5 !default;
+$spacing-3xl: $spacing-baseline * 3 !default;
+
+$layout-2xs: $spacing-baseline !default;
+$layout-xs: $spacing-baseline * 1.5 !default;
+$layout-sm: $spacing-baseline * 2 !default;
+$layout-md: $spacing-baseline * 3 !default;
+$layout-lg: $spacing-baseline * 4 !default;
+$layout-xl: $spacing-baseline * 6 !default;
+$layout-2xl: $spacing-baseline * 10 !default;
+
+//*-------------------------------------------
+//* Timings
+//*-------------------------------------------
+
+$transition: 150ms ease;
+$animation-duration: 2s;

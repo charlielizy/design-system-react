@@ -1,0 +1,36 @@
+//-------------------------
+// Global
+//-------------------------
+
+$prefix: 'mosaic' !default;
+
+$css--body: true !default;
+$css--typography: true !default;
+$css--grid: true !default;
+$font--inter: true !default;
+$font--rubic: false !default;
+$font--mono: false !default;
+$css--skeleton: true !default;
+
+// Variables and mixins
+@import 'vars';
+@import 'typography';
+@import 'import-once';
+@import 'word--wrap';
+@import 'media-queries';
+@import 'flex';
+@import 'helpers';
+
+// Blueprint
+@import 'blueprint-override';
+@import 'blueprint';
+
+// Styles
+@import 'css--reset';
+@import 'css--body';
+@import 'css--typography';
+@import 'css--layout';
+@import 'shadows';
+
+// Custom Components
+@import './components/components';

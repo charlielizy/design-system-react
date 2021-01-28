@@ -1,0 +1,19 @@
+@mixin css-body {
+  body {
+    @include font-family;
+    color: $text-01;
+    background-color: $ui-02;
+    line-height: 1;
+  }
+  @if $font--inter == true {
+    @supports (font-variation-settings: normal) {
+      body {
+        @include font-family-var;
+      }
+    }
+  }
+}
+
+@if $css--body == true {
+  @include css-body;
+}

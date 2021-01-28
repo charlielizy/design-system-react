@@ -1,0 +1,146 @@
+$navbar-bg-color: $brand-01 !default;
+$navbar-closed-size: rem(72px) !default;
+$navbar-open-size: rem(320px) !default;
+$navbar-item-color: $ui-01 !default;
+$navbar-content-height: rem(20px) !default;
+$navbar-border-color: $ui-01 !default;
+$navbar-link-height: rem(64px) !default;
+
+.bp3-focus-disabled {
+  & .navbar-title-container:focus {
+    border: none;
+  }
+
+  & .navbar-link:focus {
+    border: none;
+  }
+}
+
+// As the width of the closed nav bar is 72px, we need a slightly larger margin than the standard 24px.
+.navbar-icon-default {
+  height: $navbar-content-height;
+  width: $navbar-content-height;
+  margin: 0 28px; // [1]
+}
+
+.navbar-container {
+  height: 100%;
+  width: $navbar-closed-size;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: linear-gradient(135deg, #0959c9, #{$navbar-bg-color});
+  display: flex;
+  flex-direction: column;
+  z-index: 19;
+  transition: 0.3s width ease;
+  overflow-x: hidden;
+
+  &.navbar-open {
+    width: $navbar-open-size;
+  }
+}
+
+.navbar-title-container {
+  display: flex;
+  align-items: center;
+  width: $navbar-closed-size;
+  min-height: $navbar-closed-size;
+  color: $navbar-item-color;
+  visibility: hidden;
+
+  .navbar-open & {
+    width: $navbar-open-size;
+    visibility: visible;
+  }
+
+  & .navbar-title-icon {
+    @extend .navbar-icon-default;
+    opacity: 0;
+    transition: 0.3s opacity ease;
+
+    .navbar-open & {
+      opacity: 1;
+      transition-delay: 0.1s;
+    }
+  }
+
+  // 1. scss variables don't work with rgba
+  & .navbar-title-content {
+    opacity: 0;
+    transition: 0.3s opacity ease;
+    font-size: 24px;
+    font-weight: 300;
+    border-left: 1px solid rgba($ui-01, 0.59); //[1]
+    height: $navbar-content-height;
+    margin-left: -8px;
+    padding-left: $spacing-md;
+
+    .navbar-open & {
+      opacity: 1;
+      transition-delay: 0.1s;
+    }
+  }
+}
+
+.navbar-items-container {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1;
+}
+
+.navbar-link {
+  display: flex;
+  align-items: center;
+  color: $navbar-item-color !important;
+  text-decoration: none;
+  transition: 0.3s background-color;
+  height: $navbar-link-height;
+
+  &:focus {
+    text-decoration: none;
+    border-top: 2px solid $navbar-border-color;
+    border-bottom: 2px solid $navbar-border-color;
+  }
+
+  &:hover {
+    background-color: #3b88f4;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  // 1. Subtract 3px off the left margin to account for the border
+  // 2. !important required to override the focus handler disabling borders
+  &.navbar-selected {
+    background-color: $brand-darkened;
+    border-left: 3px solid $navbar-border-color !important; // [2]
+
+    & .navbar-link-icon {
+      margin-left: 25px; // [1]
+    }
+  }
+
+  & .navbar-link-icon {
+    @extend .navbar-icon-default;
+  }
+
+  & .navbar-link-content {
+    @include font-size('16');
+    flex-grow: 1;
+    opacity: 0;
+    transition: 0.1s opacity ease;
+    font-weight: 500;
+
+    .navbar-open & {
+      opacity: 1;
+      transition-delay: 0.1s;
+    }
+  }
+
+  & .navbar-link-external {
+    @extend .navbar-icon-default;
+    margin-right: $spacing-xl;
+  }
+}
